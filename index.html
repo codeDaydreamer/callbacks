@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Callback Example</title>
+</head>
+<body>
+  <button id="btn">Click me</button>
+  <p id="output"></p>
+
+  <script>
+    // Function that takes a callback
+    function simulateAsyncOperation(callback) {
+      // Simulating an asynchronous operation (e.g., fetching data)
+      setTimeout(() => {
+        const result = "Operation completed!";
+        callback(result); // Calling the callback with the result
+      }, 2000);
+    }
+
+    // Callback function to handle the result
+    function handleResult(result) {
+      document.getElementById("output").innerText = result;
+    }
+
+    // Event listener for the button click
+    document.getElementById("btn").addEventListener("click", () => {
+      // Calling the function simulateAsyncOperation and passing the handleResult callback
+      simulateAsyncOperation(handleResult);
+    });
+  </script>
+</body>
+</html>
